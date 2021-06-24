@@ -31,6 +31,15 @@ namespace LibraryApi.Services
             Books.Add(book);
         }
 
+        public static void Delete(int id)
+        {
+            var book = Get(id);
+            if (book is null)
+                return;
+
+            Books.Remove(book);
+        }
+
         public static void Update(Book book)
         {
             var index = Books.FindIndex(b => b.Id == book.Id);
